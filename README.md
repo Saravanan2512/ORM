@@ -1,5 +1,5 @@
 # Ex02 Django ORM Web Application
-## Date: 
+## Date: 05/04/2024
 
 ## AIM
 To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
@@ -24,11 +24,37 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 
-Include your code here
+```
+models.py
+from django.db import models
+
+# Create your models here.
+
+from django.contrib import admin
+
+class Bookdetails(models.Model):
+   Studentname=models.CharField(max_length=20);
+   Regno=models.IntegerField();
+   BookName=models.CharField(max_length=50);
+   AuthorName=models.CharField(max_length=50);
+   BookNo=models.IntegerField(primary_key=True);
+   YearofRelease=models.DateField();
+   
+class BookdetailsAdmin(admin.ModelAdmin):
+   list_display=("Studentname","Regno","BookName","AuthorName","AuthorName","BookNo","YearofRelease");
+
+admin.py
+
+from django.contrib import admin
+
+# Register your models here.
+from .models import Bookdetails,BookdetailsAdmin
+admin.site.register(Bookdetails,BookdetailsAdmin)
+```
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
+![Screenshot 2024-04-05 225414](https://github.com/selvasachein/ORM/assets/144979117/18d94323-0014-4fee-b449-a812f5cf1d99)
 
 
 ## RESULT
